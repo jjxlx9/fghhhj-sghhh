@@ -32,8 +32,10 @@ class _DupFd(object):
 #
 
 class Popen(popen_fork.Popen):
+    
     method = 'forkserver'
     DupFd = _DupFd
+    
 
     def __init__(self, process_obj):
         self._fds = []
