@@ -47,8 +47,10 @@ class Popen(popen_fork.Popen):
 
     def _launch(self, process_obj):
         prep_data = spawn.get_preparation_data(process_obj._name)
+        
         buf = io.BytesIO()
         set_spawning_popen(self)
+        
         try:
             reduction.dump(prep_data, buf)
             reduction.dump(process_obj, buf)
